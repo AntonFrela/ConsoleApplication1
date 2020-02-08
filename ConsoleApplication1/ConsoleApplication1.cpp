@@ -12,9 +12,13 @@ private:
 
 class Person {
 public:
-    void Damage(Dog d) {
+    void Damage(Dog &d) {
         d.health -= 20;
         cout <<"health of the animal "<< d.health << endl;
+    }
+    void Kill(Dog &d) {
+        d.health = 0;
+        cout << "health of the animal " << d.health << endl;
     }
 };
 
@@ -24,6 +28,8 @@ int main()
     Person Volodya;
     Volodya.Damage(Skuby);
     cout << "Hello World!\n";
+    Volodya.Kill(Skuby);
+    Volodya.Damage(Skuby);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
