@@ -3,9 +3,26 @@
 
 #include <iostream>
 using namespace std;
+class Person;
+class Dog {
+    friend class Person;
+private:
+    int health = 100;
+};
+
+class Person {
+public:
+    void Damage(Dog d) {
+        d.health -= 20;
+        cout <<"health of the animal "<< d.health << endl;
+    }
+};
 
 int main()
 {
+    Dog Skuby;
+    Person Volodya;
+    Volodya.Damage(Skuby);
     cout << "Hello World!\n";
 }
 
